@@ -1,4 +1,4 @@
-# Define build arguments (use CUDA 11.3.1 by default)
+# Define build arguments (use CUDA 11.7.1 by default)
 ARG UBUNTU_VERSION=20.04
 ARG CUDA_VERSION=11.7.1
 ARG CUDNN_VERSION=8
