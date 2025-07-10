@@ -42,22 +42,3 @@ RUN pip install --no-cache-dir \
 RUN git clone https://github.com/zzhangje/MinkowskiEngine-community.git && \
     cd MinkowskiEngine-community && \
     python setup.py install --blas_include_dirs=/usr/include/openblas --force_cuda
-
-# Install additional Python packages
-RUN apt-get update && apt-get install -y \
-    libsuitesparse-dev \
-    ffmpeg \
-    libgl1 \
-    libegl1 \
-    libxrender1 \
-    libglib2.0-0 \
-    python3.8-tk \
-    unzip \
-    && rm -rf /var/lib/apt/lists/*
-
-# Copy requirements file and install Python dependencies
-COPY requirements.txt /workspace/requirements.txt
-RUN pip install --no-cache-dir -r /workspace/requirements.txt
-
-ENV PYOPENGL_PLATFORM=egl
-WORKDIR /workspace
